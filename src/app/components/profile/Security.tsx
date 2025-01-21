@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 
 // import UpdateContact from "./UpdateContact";
-// import UpdatePassword from "./UpdatePassword";
+import UpdatePassword from "./UpdatePassword";
 import TwoFactorAuth from "./TwoFactorAuth";
 import Disable2FA from "./Disable2FA";
 import { UserData } from "@/utils/type/UserTypes";
@@ -111,10 +111,10 @@ const Security: React.FC<SecurityProps> = ({ userData,getUserData }) => {
           Change Password
         </Modal.Header>
         <Modal.Body>
-          {/* <UpdatePassword
+          <UpdatePassword
             userData={userData}
             setIsOpen={setIsPasswordModalOpen}
-          /> */}
+          />
         </Modal.Body>
       </Modal>
 
