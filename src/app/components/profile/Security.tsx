@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 
-
+import UpdateContact from "./UpdateContact";
 
 import Lottie from "lottie-react";
 import CheckAnimation from "../../../../public/images/lottie/lottie-check.json";
@@ -10,7 +10,6 @@ import UpdatePassword from "./UpdatePassword";
 import TwoFactorAuth from "./TwoFactorAuth";
 import { UserData } from "@/utils/type/UserTypes";
 // import Disable2FA from "./Disable2FA";
-// import UpdateContact from "./UpdateContact";
 
 interface SecurityProps {
   userData: UserData | null;
@@ -129,13 +128,13 @@ const Security: React.FC<SecurityProps> = ({ userData,getUserData }) => {
         <Modal.Header className="bg-primary rounded-t-lg text-white">
           Change Email
         </Modal.Header>
-        {/* <Modal.Body>
+        <Modal.Body>
           <UpdateContact
             type="email"
             userData={userData}
             setIsOpen={setIsEmailModalOpen}
           />
-        </Modal.Body> */}
+        </Modal.Body>
       </Modal>
 
       {/* Change Phone Modal */}
@@ -147,13 +146,13 @@ const Security: React.FC<SecurityProps> = ({ userData,getUserData }) => {
         <Modal.Header className="bg-primary rounded-t-lg text-white">
           Change Phone Number
         </Modal.Header>
-        {/* <Modal.Body>
+        <Modal.Body>
           <UpdateContact
             type="phone"
             userData={userData}
             setIsOpen={setIsPhoneModalOpen}
           />
-        </Modal.Body> */}
+        </Modal.Body>
       </Modal>
 
       {/*Enable 2FA Modal */}
