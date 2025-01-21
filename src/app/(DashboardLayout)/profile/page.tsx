@@ -1,3 +1,4 @@
+'use client'
 import { Card } from "flowbite-react";
 import React from "react";
 import BreadcrumbComp from "../layout/shared/breadcrumb/BreadcrumbComp";
