@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 
-// import UpdateContact from "./UpdateContact";
+import UpdateContact from "./UpdateContact";
 
 import Lottie from "lottie-react";
 import CheckAnimation from "../../../../public/images/lottie/lottie-check.json";
-// import UpdatePassword from "./UpdatePassword";
+import UpdatePassword from "./UpdatePassword";
 import TwoFactorAuth from "./TwoFactorAuth";
 import { UserData } from "@/utils/type/UserTypes";
 import Disable2FA from "./Disable2FA";
