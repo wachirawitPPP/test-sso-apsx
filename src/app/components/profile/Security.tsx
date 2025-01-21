@@ -9,7 +9,7 @@ import CheckAnimation from "../../../../public/images/lottie/lottie-check.json";
 import UpdatePassword from "./UpdatePassword";
 // import TwoFactorAuth from "./TwoFactorAuth";
 import { UserData } from "@/utils/type/UserTypes";
-import Disable2FA from "./Disable2FA";
+// import Disable2FA from "./Disable2FA";
 
 interface SecurityProps {
   userData: UserData | null;
@@ -179,7 +179,7 @@ const Security: React.FC<SecurityProps> = ({ userData,getUserData }) => {
           Enable 2FA
         </Modal.Header>
         <Modal.Body>
-          <Disable2FA getUserData={getUserData} setIsOpen={setDisble2FAModalOpen} />
+          {/* <Disable2FA getUserData={getUserData} setIsOpen={setDisble2FAModalOpen} /> */}
         </Modal.Body>
       </Modal>
     </div>
