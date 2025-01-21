@@ -1,0 +1,27 @@
+{
+    "Sample Page 1":"Sample Page 1",
+    "Sample Page 2":"Sample Page 2",
+    "Selection Table":"Selection Table",
+    "Sorting Table":"Sorting Table",
+    "Pagination Table":"Pagination Table",
+    "Filtering Table":"Filtering Table",
+    "Grouping Table":"Grouping Table",
+    "Table Slots":"Table Slots",
+    "Calendar":"Calendar",
+    "User": "User",
+    "Role":"Role",
+    "Role Management":"Role Management",
+    "Medical Records": "Medical Records",
+    
+    "Patient Register": "Patient Register",
+    "OPD Register":"OPD Register",
+    "Registration":"Registration",
+    "Privilege Center":"Privilege Center",
+    "Privilege Check":"Privilege Check",
+    "OPD Clinic":"OPD Clinic",
+    "Logout":"Logout",
+    "Login":"Login",
+    "Welcome":"Welcome",
+    "Username":"Username"
+    
+}
