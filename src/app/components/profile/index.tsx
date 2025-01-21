@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ProfileMenu from "./ProfileMenu";
 import axios from "axios";
 // import ProfileSetting from "./ProfileSetting";
-// import Security from "./Security";
+import Security from "./Security";
 
 const ProfileApps: React.FC = () => {
   const [userData, setUserData] = useState<any>(null);
@@ -57,7 +57,7 @@ const ProfileApps: React.FC = () => {
           ) : (
             <>
               {/* {selectedMenu === 0 && <ProfileSetting userData={userData} getUserData={getUserData} />} */}
-              {/* {selectedMenu === 1 && <Security userData={userData} getUserData={getUserData} />} */}
+              {selectedMenu === 1 && <Security userData={userData} getUserData={getUserData} />}
               {selectedMenu === 2 && <p>Here are your Settings.</p>}
             </>
           )}
