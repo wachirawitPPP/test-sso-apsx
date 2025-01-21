@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button, Label, Modal, TextInput } from "flowbite-react";
 
-// import UpdateContact from "./UpdateContact";
+import UpdateContact from "./UpdateContact";
 import UpdatePassword from "./UpdatePassword";
 import TwoFactorAuth from "./TwoFactorAuth";
 import Disable2FA from "./Disable2FA";
@@ -128,11 +128,11 @@ const Security: React.FC<SecurityProps> = ({ userData,getUserData }) => {
           Change Email
         </Modal.Header>
         <Modal.Body>
-          {/* <UpdateContact
+          <UpdateContact
             type="email"
             userData={userData}
             setIsOpen={setIsEmailModalOpen}
-          /> */}
+          />
         </Modal.Body>
       </Modal>
 
@@ -146,11 +146,11 @@ const Security: React.FC<SecurityProps> = ({ userData,getUserData }) => {
           Change Phone Number
         </Modal.Header>
         <Modal.Body>
-          {/* <UpdateContact
+          <UpdateContact
             type="phone"
             userData={userData}
             setIsOpen={setIsPhoneModalOpen}
-          /> */}
+          />
         </Modal.Body>
       </Modal>
 
