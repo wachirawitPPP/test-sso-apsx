@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import ProfileMenu from "./ProfileMenu";
 import axios from "axios";
-import ProfileSetting from "./ProfileSetting";
-import Security from "./Security";
+// import ProfileSetting from "./ProfileSetting";
+// import Security from "./Security";
 
 const ProfileApps: React.FC = () => {
   const [userData, setUserData] = useState<any>(null);
@@ -56,8 +56,8 @@ const ProfileApps: React.FC = () => {
             <p className="text-center text-gray-600">Loading...</p> // Show loading message
           ) : (
             <>
-              {selectedMenu === 0 && <ProfileSetting userData={userData} getUserData={getUserData} />}
-              {selectedMenu === 1 && <Security userData={userData} getUserData={getUserData} />}
+              {/* {selectedMenu === 0 && <ProfileSetting userData={userData} getUserData={getUserData} />}
+              {selectedMenu === 1 && <Security userData={userData} getUserData={getUserData} />} */}
               {selectedMenu === 2 && <p>Here are your Settings.</p>}
             </>
           )}
