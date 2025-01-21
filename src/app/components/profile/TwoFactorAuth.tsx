@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from "react";
 import { Button, Label, TextInput } from "flowbite-react";
 import Image from "next/image";
