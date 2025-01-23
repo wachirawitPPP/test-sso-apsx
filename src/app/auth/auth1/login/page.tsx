@@ -30,7 +30,7 @@ const Login = () => {
                 // width={0}
                 // height={0}
                 // priority={true}
-                //  alt=" "
+                alt="login-background"
                 // // sizes="100vw"
                 style={{ height: "100%", width: "auto" }}
               />
