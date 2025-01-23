@@ -7,7 +7,7 @@ import { Button } from "flowbite-react";
 const LeftSidebarPart = () => {
   return (
     <>
-      <div className="circle-top"></div>
+      {/* <div className="circle-top"></div>
       <div>
         <Image src={Bgimg} alt="materilm" className="circle-bottom" />
       </div>
@@ -24,7 +24,7 @@ const LeftSidebarPart = () => {
           </p>
           <Button className="mt-6" color={"primary"}>Learn More</Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

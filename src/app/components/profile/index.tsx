@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import ProfileMenu from "./ProfileMenu";
 import axios from "axios";
-// import ProfileSetting from "./ProfileSetting";
+import ProfileSetting from "./ProfileSetting";
 import Security from "./Security";
 
 const ProfileApps: React.FC = () => {
   const [userData, setUserData] = useState<any>(null);
-  const [selectedMenu, setSelectedMenu] = useState<number>(1); // Default index
+  const [selectedMenu, setSelectedMenu] = useState<number>(0); // Default index
   const [loading, setLoading] = useState<boolean>(true); // Loading state
 
   const getUserData = async () => {
@@ -42,7 +42,7 @@ const ProfileApps: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row">
       {/* Left side menu */}
-      <div className="md:w-2/4 lg:w-1/4 w-full p-4 border-2 rounded-md mb-4 lg:mb-0">
+      <div className="md:w-5/12 lg:w-1/4 w-full p-4 border-2 rounded-md mb-4 lg:mb-0">
         <ProfileMenu
           setSelectedMenu={setSelectedMenu}
           selectedMenu={selectedMenu}
@@ -56,7 +56,7 @@ const ProfileApps: React.FC = () => {
             <p className="text-center text-gray-600">Loading...</p> // Show loading message
           ) : (
             <>
-              {/* {selectedMenu === 0 && <ProfileSetting userData={userData} getUserData={getUserData} />} */}
+              {selectedMenu === 0 && <ProfileSetting userData={userData} getUserData={getUserData} />}
               {selectedMenu === 1 && <Security userData={userData} getUserData={getUserData} />}
               {selectedMenu === 2 && <p>Here are your Settings.</p>}
             </>

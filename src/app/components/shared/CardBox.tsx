@@ -13,7 +13,7 @@ interface MyAppProps {
 const CardBox: React.FC<MyAppProps> = ({ children, className }) => {
   const { activeMode, isCardShadow, isBorderRadius } = useContext(CustomizerContext);
   return (
-    <Card className={`card ${className} ${isCardShadow ? 'dark:shadow-dark-md shadow-md ' : 'shadow-none border border-ld'} `}
+    <Card className={`card rounded-md ${className} ${isCardShadow ? 'dark:shadow-dark-md shadow-md ' : 'shadow-none border border-ld'} `}
       style={{
         borderRadius: `${isBorderRadius}px`,
       }}

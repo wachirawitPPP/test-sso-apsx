@@ -1,4 +1,3 @@
-'use client'
 import { Card } from "flowbite-react";
 import React from "react";
 import BreadcrumbComp from "../layout/shared/breadcrumb/BreadcrumbComp";
@@ -6,7 +5,7 @@ import ProfileApps from "@/app/components/profile";
 
 const BCrumb = [
   {
-    to: "/",
+    to: "/app-menu",
     title: "Home",
   },
   {
@@ -15,7 +14,7 @@ const BCrumb = [
   {
     title: "Profile Settings",
   },
- 
+
 ];
 
 const Page = () => {
@@ -23,7 +22,7 @@ const Page = () => {
     <div>
       <BreadcrumbComp title="Profile Settings" items={BCrumb} />
       <Card>
-        <ProfileApps/>
+        <ProfileApps />
       </Card>
     </div>
   );

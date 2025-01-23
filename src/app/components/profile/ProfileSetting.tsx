@@ -80,6 +80,7 @@ const ProfileSetting: React.FC<ProfileSettingProps> = ({
     } catch (error) {}
   };
 
+
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Profile Settings</h1>
@@ -143,23 +144,9 @@ const ProfileSetting: React.FC<ProfileSettingProps> = ({
                     className="form-control"
                   />
                 </div>
-                {/* <div>
-                  <div className="mb-2 block">
-                    <Label htmlFor="us_email" value="Email" />
-                  </div>
-                  <TextInput
-                    id="us_email"
-                    type="email"
-                    value={formData?.us_email}
-                    onChange={handleChange}
-                    disabled={!isEditing}
-                    sizing="md"
-                    className="form-control"
-                  />
-                </div> */}
               </div>
             </div>
-            <div className="md:col-span-6 col-span-12">
+            <div className="lg:col-span-6 col-span-12">
               <div className="flex flex-col gap-3 mt-3">
                 <div>
                   <div className="mb-2 block">

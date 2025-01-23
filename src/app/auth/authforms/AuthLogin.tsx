@@ -11,18 +11,22 @@ import {
 } from "flowbite-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+
+import { useRouter, useSearchParams } from "next/navigation";
 import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 import { loginType } from "@/app/(DashboardLayout)/types/auth/auth";
 import axios from "axios";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
-  const { data: session, status } = useSession(); // Use session and status from next-auth
   const router = useRouter();
+  const { t } = useTranslation();
 
-  const [username, setUsername] = useState("admin");
-  const [password, setPassword] = useState("admin123");
+  const searchParams = useSearchParams();
+  const id = searchParams.get("redirect");
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [TwoFACode, setTwoFACode] = useState("");
   const [TwoFAModal, setTwoFAModal] = useState(false);
@@ -30,13 +34,11 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const [loading, setLoading] = useState(false);
 
   // Handle redirection after login
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.push("/"); // Redirect to the dashboard or homepage
-    }
-  }, [status, router]);
-
- 
+  // useEffect(() => {
+  //   if (status === "authenticated") {
+  //     router.push("/app-menu"); // Redirect to the dashboard or homepage
+  //   }
+  // }, [status, router]);
 
   const getProfile = async (accessToken: string) => {
     const profile = await axios.get(
@@ -81,8 +83,13 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
           localStorage.setItem("refresh_token", result.data.refresh_token);
           const profile = await getProfile(result.data.access_token);
           if (profile === "success") {
-            router.push("/");
-            setLoading(false);
+            if (id) {
+              router.push(`/redirect?id=${id}`);
+              setLoading(false);
+            } else {
+              router.push("/app-menu");
+              setLoading(false);
+            }
           }
         } else if (result.data.verify_code) {
           setTwoFAModal(true);
@@ -98,10 +105,10 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
     }
   };
 
-  if (status === "loading") {
-    // Show a loading state while session is being fetched
-    return <p>Loading...</p>;
-  }
+  // if (status === "loading") {
+  //   // Show a loading state while session is being fetched
+  //   return <p>Loading...</p>;
+  // }
 
   const verifyPasscode = async () => {
     setLoading(true);
@@ -116,17 +123,23 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
       if (res.data.status === "success") {
         localStorage.setItem("access_token", res.data.access_token);
         localStorage.setItem("refresh_token", res.data.refresh_token);
-        router.push("/");
+        const profile = await getProfile(res.data.access_token);
+        if (profile === "success") {
+          if (id) {
+            router.push(`/redirect?id=${id}`);
+            setLoading(false);
+          } else {
+            router.push("/app-menu");
+            setLoading(false);
+          }
+        }
       }
-      setLoading(false);
+     
     } catch (error) {}
   };
 
   return (
     <>
-      {title && <p>{title}</p>}
-      {subtext}
-
       {/* Error Alert */}
       {error && (
         <div className="mt-4">
@@ -149,14 +162,14 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
         {/* Username Input */}
         <div className="mb-4">
           <div className="mb-2 block">
-            <Label htmlFor="username" value="Username" />
+            <Label htmlFor="username" value={t("Username")} />
           </div>
           <TextInput
             id="username"
             type="text"
             sizing="md"
             value={username}
-            className={error ? "error-border" : ""}
+            className={error ? "error-border" : "form-control"}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
@@ -164,34 +177,25 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
         {/* Password Input */}
         <div className="mb-4">
           <div className="mb-2 block">
-            <Label htmlFor="password" value="Password" />
+            <Label htmlFor="password" value={t("Password")} />
           </div>
           <TextInput
             id="password"
             type="password"
             sizing="md"
             value={password}
-            className={error ? "error-border" : ""}
+            className={error ? "error-border" : "form-control"}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
         {/* Remember Device */}
         <div className="flex justify-between my-5">
-          <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
-            <Label
-              htmlFor="remember"
-              className="opacity-90 font-normal cursor-pointer"
-            >
-              Remember this Device
-            </Label>
-          </div>
           <Link
-            href="/forgot-password"
+            href="/auth/forgot-password"
             className="text-primary text-sm font-medium"
           >
-            Forgot Password?
+            {t("Forgot Password")}?
           </Link>
         </div>
 
@@ -206,12 +210,10 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
               <span className="pl-3">Loading...</span>
             </>
           ) : (
-            "Sign in"
+            t("Log in")
           )}
         </Button>
       </form>
-
-      {/* {subtitle} */}
       <Modal
         show={TwoFAModal}
         onClose={() => {

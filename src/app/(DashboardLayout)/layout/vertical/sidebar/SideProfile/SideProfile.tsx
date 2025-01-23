@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import * as profileData from "../../header/Data";
 import Link from "next/link";
 import Image from "next/image";
-import { useSession, signOut } from "next-auth/react";
+
 import SimpleBar from "simplebar-react";
 const SideProfile = () => {
   const [data, setData] = useState<any>({
@@ -21,6 +21,15 @@ const SideProfile = () => {
         email: localStorage.getItem("email"),
       });
     };
+
+    const signOut = async () => {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("email");
+      localStorage.removeItem("fullname");
+      window.location.href = "/auth/auth1/login";
+    }
   
     useEffect(() => {
       // Access localStorage only on the client side

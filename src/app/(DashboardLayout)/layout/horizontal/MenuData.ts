@@ -13,7 +13,7 @@ const Menuitems: MenuItem[] = [
     id: uniqueId(),
     title: "App List",
     icon: "solar:user-id-broken",
-    href: "/",
+    href: "/app-menu",
     column: 2,
     children: [
       // {
@@ -29,7 +29,7 @@ const Menuitems: MenuItem[] = [
     id: uniqueId(),
     title: "Profile",
     icon: "solar:user-id-broken",
-    href: "/app-menu",
+    href: "/profile",
     column:2,
     children: [
       // {

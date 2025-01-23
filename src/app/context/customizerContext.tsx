@@ -43,7 +43,7 @@ export const CustomizerContextProvider: React.FC<CustomizerContextProps> = ({ ch
   const [isLayout, setIsLayout] = useState<string>(config.isLayout);
   const [isBorderRadius, setIsBorderRadius] = useState<number>(config.isBorderRadius);
   const [isCollapse, setIsCollapse] = useState<string>(config.isCollapse);
-  const [isLanguage, setIsLanguage] = useState<string>("en");
+  const [isLanguage, setIsLanguage] = useState<string>("th");
 
   // Set attributes immediately
   useEffect(() => {

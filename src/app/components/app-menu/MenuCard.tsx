@@ -11,14 +11,16 @@ interface MenuCardProps {
 
 interface AppData {
   ap_id: string;
-  ap_name: string;
+  ap_name_en: string;
+  ap_name_th: string;
   ap_logo: string;
   ap_url: string;
 }
 
+
+
 const MenuCard: React.FC<MenuCardProps> = ({ appData }) => {
   const router = useRouter();
- 
 
   // Example: fetch app data from an API endpoint
   const handleLogin = async (ap_id: string) => {
@@ -47,19 +49,19 @@ const MenuCard: React.FC<MenuCardProps> = ({ appData }) => {
     }
   };
   return (
-    <div className="flex gap-4 flex-wrap mt-2 h-72">
+    <div className="flex flex-wrap mt-2 min-h-72">
       {appData && appData.length > 0 ? (
         appData.map((app, index) => (
-          <div key={index} className="w-full md:w-1/3 lg:w-1/4">
-            <Card className="rounded-md shadow-md hover:shadow-md hover:shadow-primary transition-shadow p-4">
+          <div key={index} className=" lg:w-4/12 p-2">
+            <Card className="rounded-md border border-gray-300">
               <div className="flex flex-row">
                 {/* App Logo */}
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 border-2 border-primary rounded-md">
                   <Image
                     src={
                       "https://i.pinimg.com/736x/16/3d/cb/163dcb920d747eb5e11490f8551561b8.jpg"
                     }
-                    alt={`${app.ap_name} logo`}
+                    alt={`${app.ap_name_en} logo`}
                     width={100}
                     height={100}
                     className="rounded-md"
@@ -71,11 +73,8 @@ const MenuCard: React.FC<MenuCardProps> = ({ appData }) => {
                   {/* App Name and URL */}
                   <div className="flex flex-col items-end">
                     <h2 className="text-lg font-bold text-primary">
-                      {app.ap_name}
+                      {app.ap_name_en}
                     </h2>
-                    <p className="text-sm text-gray-500 dark:text-white underline">
-                      {app.ap_url}
-                    </p>
                   </div>
 
                   {/* Divider */}

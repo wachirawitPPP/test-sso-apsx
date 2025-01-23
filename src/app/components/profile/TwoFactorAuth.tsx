@@ -1,4 +1,3 @@
-'use client'
 import React, { useEffect, useState } from "react";
 import { Button, Label, TextInput } from "flowbite-react";
 import Image from "next/image";
@@ -89,7 +88,7 @@ const TwoFactorAuth: React.FC<TwoFAProps> = ({ setIsOpen,getUserData }) => {
           placeholder="Enter 6-digit code"
           value={passcode}
           onChange={(e) => setPasscode(e.target.value)}
-          className="mt-2 text-center"
+          className="form-control mt-2 text-center"
         />
       </div>
 

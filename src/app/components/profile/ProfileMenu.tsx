@@ -21,17 +21,12 @@ const menu_list: MenuItem[] = [
   {
     id: 1,
     name: "Profile",
-    icon: "solar:inbox-line-broken",
+    icon: "solar:user-circle-linear",
   },
   {
     id: 2,
     name: "Security & Privacy",
-    icon: "solar:inbox-line-broken",
-  },
-  {
-    id: 3,
-    name: "Settings",
-    icon: "solar:settings-gear-linear",
+    icon: "solar:shield-keyhole-outline",
   },
 ];
 

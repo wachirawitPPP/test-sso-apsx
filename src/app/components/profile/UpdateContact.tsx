@@ -1,11 +1,12 @@
 "use client";
 import axios from "axios";
-import dynamic from "next/dynamic";
+
 import { Modal, Label, TextInput, Button } from "flowbite-react";
 import React, { useState } from "react";
 import CheckAnimation from "../../../../public/images/lottie/lottie-check.json";
 import { UserData } from "@/utils/type/UserTypes";
 
+import dynamic from "next/dynamic";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 interface UpdateProps {
@@ -66,10 +67,11 @@ const UpdateContact: React.FC<UpdateProps> = ({ userData, type, setIsOpen }) => 
           <div>
             {error && <div className="text-rose-500">{error}</div>}
             <div className="mb-2">
-              <Label htmlFor="newContact" value={isEmail ? "New Email" : "New Phone Number"} />
+              <Label className="text-primary" htmlFor="newContact" value={isEmail ? "New Email" : "New Phone Number"} />
               <TextInput
                 id="newContact"
                 type="text"
+                className="form-control"
                 disabled={loading}
                 value={newContact}
                 onChange={(e) => setNewContact(e.target.value)}

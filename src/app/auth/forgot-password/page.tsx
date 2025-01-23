@@ -7,8 +7,7 @@ import axios from "axios";
 import { Icon } from "@iconify/react";
 import { Language } from "@/app/(DashboardLayout)/layout/vertical/header/Language";
 import { useTranslation } from "react-i18next";
-import Email from "next-auth/providers/email";
-import { useSearchParams } from "next/navigation";
+
 
 const TIMER_DURATION = 300; // Timer duration in seconds
 
@@ -39,7 +38,7 @@ const AlertMessage = ({
 );
 
 const ForgotPassword: React.FC = () => {
-  const search = useSearchParams();
+ 
   // State Variables
   const [stepIndex, setStepIndex] = useState(0);
   const [username, setUsername] = useState("");

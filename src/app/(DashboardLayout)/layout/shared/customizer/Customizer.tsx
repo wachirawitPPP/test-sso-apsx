@@ -22,7 +22,6 @@ export const Customizer = () => {
     document.body.setAttribute("data-color-theme", cvalue);
   };
 
-
   const Slider: React.FC<SliderProps> = ({
     value,
     min,
@@ -92,8 +91,18 @@ export const Customizer = () => {
     },
     {
       id: 7,
-      bgColor: "#ff91b4",
+      bgColor: "#EB42AF",
       disp: "PINK_THEME",
+    },
+    {
+      id: 8,
+      bgColor: "#EBAF42",
+      disp: "ORANGELIGHT_THEME",
+    },
+    {
+      id: 9,
+      bgColor: "#bba735",
+      disp: "YELLOW_THEME",
     },
   ];
 
@@ -122,7 +131,7 @@ export const Customizer = () => {
         <SimpleBar className="h-n80">
           <div className="p-4">
             {/* Theme Option */}
-            <h4 className="text-base mb-2">Theme Option</h4>
+            {/* <h4 className="text-base mb-2">Theme Option</h4>
             <div className="flex gap-4 mb-7">
               <Button
                 color={"primary"}
@@ -163,10 +172,10 @@ export const Customizer = () => {
                   Dark
                 </span>
               </Button>
-            </div>
+            </div> */}
 
             {/* Theme direction */}
-            <h4 className="text-base mb-2">Theme Direction</h4>
+            {/* <h4 className="text-base mb-2">Theme Direction</h4>
             <div className="flex gap-4 mb-7">
               <Button
                 color={"primary"}
@@ -206,7 +215,7 @@ export const Customizer = () => {
                   RTL
                 </span>
               </Button>
-            </div>
+            </div> */}
 
             {/* Theme Colors */}
             <h4 className="text-base mb-2">Theme Colors</h4>
@@ -237,7 +246,7 @@ export const Customizer = () => {
             </div>
 
             {/* Theme layout */}
-            <h4 className="text-base mb-2">Layout Type</h4>
+            {/* <h4 className="text-base mb-2">Layout Type</h4>
             <div className="flex flex-wrap  gap-4 mb-7">
               <Button
                 color={"primary"}
@@ -273,10 +282,10 @@ export const Customizer = () => {
                   Horizontal
                 </span>
               </Button>
-            </div>
+            </div> */}
 
             {/* Sidebar Type */}
-            <h4 className="text-base mb-2">Container Option</h4>
+            {/* <h4 className="text-base mb-2">Container Option</h4>
             <div className="flex flex-wrap  gap-4 mb-7">
               <Button
                 color={"primary"}
@@ -312,10 +321,10 @@ export const Customizer = () => {
                   Full
                 </span>
               </Button>
-            </div>
+            </div> */}
 
             {/* Sidebar Type */}
-            <h4 className="text-base mb-2">Sidebar Type</h4>
+            {/* <h4 className="text-base mb-2">Sidebar Type</h4>
             <div className="flex flex-wrap  gap-4 mb-7">
               <Button
                 color={"primary"}
@@ -351,10 +360,10 @@ export const Customizer = () => {
                   Collapse
                 </span>
               </Button>
-            </div>
+            </div> */}
 
             {/* Card  With */}
-            <h4 className="text-base mb-2">Card With</h4>
+            {/* <h4 className="text-base mb-2">Card With</h4>
             <div className="flex flex-wrap  gap-4 mb-7">
               <Button
                 color={"primary"}
@@ -388,18 +397,18 @@ export const Customizer = () => {
                   Shadow
                 </span>
               </Button>
-            </div>
+            </div> */}
 
             {/* Card  With */}
-            <h4 className="text-base mb-2">Theme Border Radius</h4>
+            {/* <h4 className="text-base mb-2">Theme Border Radius</h4>
             <RangeSlider
               id="default-range"
               value={isBorderRadius}
               min={4}
               max={24}
               onChange={(event: any) => setIsBorderRadius(event.target.value)}
-            />
-            <div>Current Value: {isBorderRadius}</div>
+            /> */}
+            {/* <div>Current Value: {isBorderRadius}</div> */}
           </div>
         </SimpleBar>
       </Drawer>

@@ -67,8 +67,8 @@ const Header = ({ layoutType }: HeaderPropsType) => {
       <header
         className={`sticky top-0 z-[5] ${
           isSticky
-            ? "bg-lightgray dark:bg-dark shadow-md fixed w-full"
-            : "bg-transparent"
+            ? "bg-white dark:bg-dark shadow-md fixed w-full"
+            : "bg-white"
         }`}
       >
         <Navbar
@@ -107,11 +107,6 @@ const Header = ({ layoutType }: HeaderPropsType) => {
                   <Icon icon="solar:hamburger-menu-line-duotone" height={21} />
                 </span>
               ) : null}
-
-              {/* App Link Dropwown   */}
-              <AppLinks />
-
-              <Search />
             </div>
           </Navbar.Collapse>
 
@@ -145,13 +140,6 @@ const Header = ({ layoutType }: HeaderPropsType) => {
               )}
               {/* Language Dropdown*/}
               <Language />
-
-              {/* Messages Dropdown */}
-              <Messages />
-
-              {/* Notification Dropdown */}
-              <Notifications />
-
               {/* Profile Dropdown */}
               <Profile />
             </div>

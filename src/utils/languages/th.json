@@ -20,8 +20,10 @@
     "Privilege Check":"งานศูนย์ตรวจสอบสิทธิ",
     "OPD Clinic":"งานห้องตรวจผู้ป่วยนอก",
     "Forgot Password": "ลืมรหัสผ่าน",
+    "Password": "รหัสผ่าน",
     "Username":"ชื่อผู้ใช้",
     "Search":"ค้นหา",
+    "Log in":"เข้าสู่ระบบ",
     "Back to Login":"เข้าสู่ระบบ",
     "email":"อีเมล์",
     "phone":"หมายเลขโทรศัพท์",
@@ -35,7 +37,10 @@
     "Confirm Password":"ยืนยันรหัสผ่าน",
     "Confirm":"ยืนยัน",
     "Profile": "โปรไฟล์",
-    "Applications": "แอปพลิเคชัน"
+    "Applications": "แอปพลิเคชัน",
+    "Logout":"ออกจากระบบ",
+    "User Profile":"โปรไฟล์ผู้ใช้"
+   
     
 
 }
