@@ -8,7 +8,6 @@ import { Icon } from "@iconify/react";
 import { Language } from "@/app/(DashboardLayout)/layout/vertical/header/Language";
 import { useTranslation } from "react-i18next";
 
-
 const TIMER_DURATION = 300; // Timer duration in seconds
 
 // Reusable Alert Component
@@ -38,7 +37,6 @@ const AlertMessage = ({
 );
 
 const ForgotPassword: React.FC = () => {
- 
   // State Variables
   const [stepIndex, setStepIndex] = useState(0);
   const [username, setUsername] = useState("");
@@ -178,7 +176,7 @@ const ForgotPassword: React.FC = () => {
             <TextInput
               id="username"
               value={username}
-              className="rounded-md"
+              className="form-rounded-md"
               onChange={(e) => setUsername(e.target.value)}
             />
             <Button type="submit" color={"primary"} className="w-full mt-4">
@@ -235,6 +233,7 @@ const ForgotPassword: React.FC = () => {
               id="otp"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
+              className="form-rounded-md"
             />
             <div className="flex flex-row justify-between my-4">
               <p>
@@ -273,12 +272,13 @@ const ForgotPassword: React.FC = () => {
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
+              className="form-rounded-md"
             />
             <div className="my-2">
               <Label htmlFor="confirmPassword" value={t("Confirm Password")} />
             </div>
             <TextInput
-              className="rounded-md"
+              className="form-rounded-md"
               id="confirmPassword"
               type="password"
               value={confirmPassword}

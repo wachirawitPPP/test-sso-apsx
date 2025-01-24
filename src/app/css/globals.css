@@ -106,6 +106,9 @@
   .form-rounded-md input {
     @apply rounded-md border border-border text-base p-2 dark:border-darkborder bg-transparent dark:bg-transparent w-full text-dark dark:text-white;
   }
+  .form-rounded-md-error input {
+    @apply rounded-md border border-border border-red-500 text-base p-2 dark:border-darkborder bg-transparent dark:bg-transparent w-full text-dark dark:text-white;
+  }
 
   .form-rounded-md input::placeholder {
     @apply text-gray-400 text-base dark:text-gray-600;

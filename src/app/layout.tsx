@@ -6,6 +6,7 @@ import { Flowbite, ThemeModeScript } from "flowbite-react";
 import customTheme from "@/utils/theme/custom-theme";
 import { CustomizerContextProvider } from "@/app/context/customizerContext";
 import "../utils/i18n";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const kanit = Kanit({ subsets: ["latin"], weight: ["200", "300"] });
@@ -33,6 +34,7 @@ export default function RootLayout({
         <body className={`${kanit.className}`}>
         
           <Flowbite theme={{ theme: customTheme }}>
+             <Toaster />
             <CustomizerContextProvider>{children}</CustomizerContextProvider>
           </Flowbite>
         </body>

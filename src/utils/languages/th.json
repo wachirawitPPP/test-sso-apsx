@@ -39,7 +39,11 @@
     "Profile": "โปรไฟล์",
     "Applications": "แอปพลิเคชัน",
     "Logout":"ออกจากระบบ",
-    "User Profile":"โปรไฟล์ผู้ใช้"
+    "User Profile":"โปรไฟล์ผู้ใช้",
+    "Enter Username":"ใส่ชื่อผู้ใช้",
+    "Enter Password":"ใส่รหัสผ่าน",
+    "Username and Password are required":"โปรดระบุชื่่อผู้ใช้ และรหัสผ่าน",
+    "Invalid username and password":"ชื่อผู้ใช้งาน หรือรหัสผ่านไม่ถูกต้อง"
    
     
 

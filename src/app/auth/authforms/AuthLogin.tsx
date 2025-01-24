@@ -4,10 +4,12 @@ import {
   Alert,
   Button,
   Checkbox,
+  HelperText,
   Label,
   Modal,
   Spinner,
   TextInput,
+  Toast,
 } from "flowbite-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -17,6 +19,7 @@ import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 import { loginType } from "@/app/(DashboardLayout)/types/auth/auth";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const router = useRouter();
@@ -59,10 +62,12 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
     setLoading(true);
     // Validate form inputs
     if (!username || !password) {
-      setError("Username and Password are required");
+      setError(t("Username and Password are required"));
+      setLoading(false);
       return;
     }
     console.log(username, password);
@@ -96,7 +101,16 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
           setLoading(false);
           setTwoFACode(result.data.verify_code);
         }
-      } else {
+      } else if (result.data.status === "error") {
+        toast.error(t("Invalid username and password"), {
+          position: "top-right",
+          duration: 5000,
+          style: {
+            minWidth: "300px",
+            padding: "25px",
+            border: "1px solid red"
+          },
+        });
         setLoading(false);
         console.log("sso_auth_fail");
       }
@@ -134,7 +148,6 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
           }
         }
       }
-     
     } catch (error) {}
   };
 
@@ -169,9 +182,12 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
             type="text"
             sizing="md"
             value={username}
-            className={error ? "error-border" : "form-control"}
+            className={error ? "form-rounded-md-error" : "form-rounded-md"}
             onChange={(e) => setUsername(e.target.value)}
           />
+          {error && (
+            <p className="text-red-500 text-sm mt-1">{t("Enter Username")}</p>
+          )}
         </div>
 
         {/* Password Input */}
@@ -183,10 +199,14 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
             id="password"
             type="password"
             sizing="md"
+            color="failure"
             value={password}
-            className={error ? "error-border" : "form-control"}
+            className={error ? "form-rounded-md-error" : "form-rounded-md"}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {error && (
+            <p className="text-red-500 text-sm mt-1">{t("Enter Password")}</p>
+          )}
         </div>
 
         {/* Remember Device */}
@@ -221,31 +241,32 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
         }}
       >
         <Modal.Header className="bg-primary rounded-t-lg text-white">
-          <h2 className="text-lg font-semibold">Two-Factor Authentication</h2>
+          <h2 className="text-lg font-semibold text-white">
+            Two-Factor Authentication
+          </h2>
         </Modal.Header>
         <Modal.Body>
           <div className="text-center">
             {/* Instructions */}
             <h3 className="text-gray-800 font-medium mb-2">
-              Enter the 6-Digit Passcode
+              ป้อนรหัสผ่าน 6 หลัก
             </h3>
             <p className="text-sm text-gray-600 mb-6">
-              Please open your Two-Factor Authentication app and enter the
-              6-digit passcode generated for your account.
+              กรุณาเปิดแอปการยืนยันตัวตนสองขั้นตอนของคุณ และป้อนรหัสผ่าน 6
+              หลักที่สร้างขึ้นสำหรับบัญชีของคุณ
             </p>
 
             {/* Passcode Input */}
             <div className="mb-4">
-              <Label htmlFor="passCode" value="6-Digit Passcode" />
               <div className="flex justify-center mt-2">
                 <TextInput
                   id="passCode"
                   type="text"
                   value={passCode}
                   onChange={(e) => setPassCode(e.target.value)}
-                  placeholder="Enter your 6-digit passcode"
+                  placeholder=" ป้อนรหัสผ่าน 6 หลัก"
                   sizing="md"
-                  className="form-control w-6/12 flex justify-center"
+                  className="form-rounded-md w-6/12 flex justify-center"
                 />
               </div>
             </div>

@@ -68,7 +68,7 @@ const Header = ({ layoutType }: HeaderPropsType) => {
         className={`sticky top-0 z-[5] ${
           isSticky
             ? "bg-white dark:bg-dark shadow-md fixed w-full"
-            : "bg-white"
+            : "bg-white dark:bg-dark"
         }`}
       >
         <Navbar
